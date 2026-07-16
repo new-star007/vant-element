@@ -8,17 +8,18 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: 'Vant Element',
   description: '基于 Vant 的 Element-UI 兼容组件库',
+  base: '/vant-element/',
 
   bundler: webpackBundler(),
 
   head: [
-    ['link', { rel: 'icon', href: '/icon.png' }],
+    ['link', { rel: 'icon', href: '/vant-element/icon.png' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ],
 
   theme: defaultTheme({
     logo: '/logo.png',
-    repo: 'https://github.com/your-org/vant-element',
+    repo: 'https://github.com/new-star007/vant-element',
     docsDir: 'docs',
 
     navbar: [
