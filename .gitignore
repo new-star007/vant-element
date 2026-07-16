@@ -1,0 +1,46 @@
+/.mimocode/**
+# dependencies
+/**/node_modules
+/.pnp
+.pnp.js
+
+# production
+/**/dist
+
+# environment files
+.env
+.env.*.local
+
+# misc
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# build cache
+.sass-cache/
+.cache/
+coverage/
+
+# VuePress
+.temp
+
+# temporary files
+*.tmp
+*.bak
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# pnpm
+.pnpm-store/

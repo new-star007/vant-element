@@ -1,0 +1,19 @@
+@media (min-width: 1200px) {
+  .vp-page {
+    padding-right: 400px !important;
+  }
+}
+
+.search-box {
+  z-index: 150 !important;
+}
+
+.search-box .suggestions {
+  z-index: 200 !important;
+}
+
+@media (max-width: 1199px) {
+  .mobile-preview-panel {
+    display: none !important;
+  }
+}

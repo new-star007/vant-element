@@ -1,0 +1,24 @@
+{
+  "name": "vant-element-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Element-UI compatible Vue 2 components powered by Vant",
+  "scripts": {
+    "dev": "npm run dev --workspace=examples/vue2-demo",
+    "build:lib": "npm run build --workspace=packages/vant-element",
+    "build:example": "npm run build --workspace=examples/vue2-demo",
+    "build": "npm run build:lib && npm run build:example",
+    "lint": "npm run lint --workspace=packages/vant-element",
+    "docs:dev": "npm run dev --prefix docs",
+    "docs:build": "npm run build --prefix docs"
+  },
+  "workspaces": [
+    "packages/vant-element",
+    "examples/vue2-demo"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
