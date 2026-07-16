@@ -175,62 +175,6 @@ Vue.use(VantElement, { components: ['el-button', 'el-input'] })
 | `this.$prompt` | 自定义输入弹窗 | 带输入框的模态消息 |
 | `this.$msgbox` | `van-dialog`（完整封装） | 模态消息框 |
 
-## 开发
-
-### 项目结构
-
-本项目拆分为三个独立目录：
-
-```
-vant-element/               # 库源码 (npm 包)
-├── packages/vant-element/
-│   ├── src/
-│   │   ├── index.js        # 插件入口
-│   │   ├── utils.js        # 图标映射工具
-│   │   ├── components/     # 65 个组件
-│   │   └── services/       # 服务式 API
-│   ├── package.json        # npm 包发布入口
-│   └── vue.config.js
-├── package.json            # monorepo 根
-└── .github/workflows/      # CI 配置
-
-vant-element-docs/          # VuePress 文档站 (独立)
-├── .vuepress/
-├── components/             # 组件文档 .md
-├── guide/                  # 使用指南
-└── package.json
-
-vant-element-examples/      # 演示项目 (独立)
-├── src/
-│   ├── main.js
-│   ├── router/
-│   └── views/
-├── public/
-└── package.json
-```
-
-### 脚本
-
-```bash
-# 安装依赖
-pnpm install
-
-# 启动演示项目
-npm run dev
-
-# 启动文档站
-npm run docs:dev
-
-# 构建库
-npm run build:lib
-
-# 构建文档站
-npm run docs:build
-
-# 构建全部
-npm run build
-```
-
 ## License
 
 [MIT](LICENSE)

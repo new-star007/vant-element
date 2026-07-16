@@ -1,12 +1,12 @@
 /.mimocode/**
 # dependencies
-/**/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
 # production
-/**/dist
-/**/package-lock.json
+/dist
+/package-lock.json
 
 # environment files
 .env

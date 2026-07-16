@@ -1,23 +1,44 @@
 {
-  "name": "vant-element-monorepo",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Element-UI compatible Vue 2 components powered by Vant",
-  "scripts": {
-    "dev": "npm run dev --workspace=packages/vant-element",
-    "build:lib": "npm run build --workspace=packages/vant-element",
-    "build:example": "npm run build --prefix ../vant-element-examples",
-    "build": "npm run build:lib",
-    "lint": "npm run lint --workspace=packages/vant-element",
-    "docs:dev": "npm run dev --prefix ../vant-element-docs",
-    "docs:build": "npm run build --prefix ../vant-element-docs"
-  },
-  "workspaces": [
-    "packages/vant-element"
+  "name": "vant-element",
+  "version": "0.1.1",
+  "description": "Element UI compatible Vue 2 components powered by Vant",
+  "main": "dist/vant-element.umd.min.js",
+  "module": "dist/vant-element.common.js",
+  "unpkg": "dist/vant-element.umd.min.js",
+  "style": "dist/vant-element.css",
+  "files": [
+    "dist"
   ],
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name vant-element src/index.js",
+    "prepublishOnly": "npm run build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vant": "^2.13.9"
+  },
+  "peerDependencies": {
+    "vue": "^2.7.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "babel-plugin-import": "^1.13.8",
+    "eslint": "^7.32.0",
+    "vue": "^2.7.16",
+    "vue-template-compiler": "^2.7.16"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "element-ui",
+    "vant",
+    "component-library"
   ]
 }
