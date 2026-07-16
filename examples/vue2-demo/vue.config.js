@@ -2,11 +2,11 @@ const path = require('path')
 
 module.exports = {
   lintOnSave: false,
-  transpileDependencies: ['@fengluo/vant-element'],
+  transpileDependencies: ['vant-element'],
   configureWebpack: {
     resolve: {
       alias: {
-        '@fengluo/vant-element': path.resolve(__dirname, '../../packages/vant-element/src')
+        'vant-element': path.resolve(__dirname, '../../packages/vant-element/src')
       }
     }
   }

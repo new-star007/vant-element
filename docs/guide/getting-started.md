@@ -3,15 +3,15 @@
 ## 安装
 
 ```bash
-npm install @fengluo/vant-element
+npm install vant-element
 ```
 
 ## 完整引入
 
 ```js
 import Vue from 'vue'
-import VantElement from '@fengluo/vant-element'
-import '@fengluo/vant-element/dist/vant-element.css'
+import VantElement from 'vant-element'
+import 'vant-element/dist/vant-element.css'
 
 Vue.use(VantElement)
 ```
@@ -22,8 +22,8 @@ Vue.use(VantElement)
 
 ```js
 import Vue from 'vue'
-import { ElButton, ElDialog } from '@fengluo/vant-element'
-import '@fengluo/vant-element/dist/vant-element.css'
+import { ElButton, ElDialog } from 'vant-element'
+import 'vant-element/dist/vant-element.css'
 
 Vue.use(ElButton)
 Vue.use(ElDialog)
@@ -45,7 +45,7 @@ npm install babel-plugin-import -D
 module.exports = {
   plugins: [
     ['import', {
-      libraryName: '@fengluo/vant-element',
+      libraryName: 'vant-element',
       libraryDirectory: 'dist',
       style: 'css'
     }]
@@ -56,7 +56,7 @@ module.exports = {
 使用时直接引入组件即可，无需手动注册：
 
 ```js
-import { ElButton, ElInput } from '@fengluo/vant-element'
+import { ElButton, ElInput } from 'vant-element'
 
 // 无需 Vue.use()，babel 插件会自动处理
 ```
