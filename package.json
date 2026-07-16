@@ -4,17 +4,16 @@
   "private": true,
   "description": "Element-UI compatible Vue 2 components powered by Vant",
   "scripts": {
-    "dev": "npm run dev --workspace=examples/vue2-demo",
+    "dev": "npm run dev --workspace=packages/vant-element",
     "build:lib": "npm run build --workspace=packages/vant-element",
-    "build:example": "npm run build --workspace=examples/vue2-demo",
-    "build": "npm run build:lib && npm run build:example",
+    "build:example": "npm run build --prefix ../vant-element-examples",
+    "build": "npm run build:lib",
     "lint": "npm run lint --workspace=packages/vant-element",
-    "docs:dev": "npm run dev --prefix docs",
-    "docs:build": "npm run build --prefix docs"
+    "docs:dev": "npm run dev --prefix ../vant-element-docs",
+    "docs:build": "npm run build --prefix ../vant-element-docs"
   },
   "workspaces": [
-    "packages/vant-element",
-    "examples/vue2-demo"
+    "packages/vant-element"
   ],
   "browserslist": [
     "> 1%",

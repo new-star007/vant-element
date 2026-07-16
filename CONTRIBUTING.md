@@ -20,16 +20,21 @@ npm run docs:dev
 
 ## 项目结构
 
+项目拆分为三个独立目录：
+
 ```
-packages/vant-element/     # 库源码
-  src/
-    components/            # 组件实现
-    services/              # 服务式 API
-    directives/            # 自定义指令
-    mixins/                # 共享 mixin
-    index.js               # 插件入口
-examples/vue2-demo/        # 演示项目
-docs/                      # VuePress 文档站
+vant-element/               # 库源码（pnpm monorepo）
+├── packages/vant-element/  # npm 包
+│   └── src/
+│       ├── index.js        # 插件入口
+│       ├── components/     # 组件实现
+│       ├── services/       # 服务式 API
+│       ├── directives/     # 自定义指令
+│       └── mixins/         # 共享 mixin
+└── package.json
+
+vant-element-examples/      # 演示项目（同级）
+vant-element-docs/          # VuePress 文档站（同级）
 ```
 
 ## 新增组件

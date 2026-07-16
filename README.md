@@ -179,43 +179,34 @@ Vue.use(VantElement, { components: ['el-button', 'el-input'] })
 
 ### 项目结构
 
-本项目为 pnpm monorepo，包含库源码、演示项目和文档站：
+本项目拆分为三个独立目录：
 
 ```
-vant-element/
-├── packages/
-│   └── vant-element/         # 库源码 vant-element
-│       ├── src/
-│       │   ├── index.js      # 插件入口
-│       │   ├── utils.js      # 图标映射工具
-│       │   ├── components/   # 65 个组件
-│       │   │   ├── el-button.vue
-│       │   │   ├── el-input.vue
-│       │   │   └── ...
-│       │   └── services/     # 服务式 API
-│       │       ├── el-message.js
-│       │       ├── el-notification.js
-│       │       ├── el-loading.js
-│       │       └── el-message-box.js
-│       ├── package.json
-│       └── vue.config.js
-├── examples/
-│   └── vue2-demo/            # 演示项目
-│       ├── src/
-│       │   ├── App.vue
-│       │   ├── main.js
-│       │   ├── router/
-│       │   └── views/
-│       ├── public/
-│       │   └── index.html
-│       └── package.json
-├── docs/                     # 文档站
-│   ├── README.md             # 首页
-│   ├── guide/                # 使用指南
-│   ├── components/           # 组件文档
-│   └── .vuepress/            # VuePress 配置
-├── package.json              # monorepo 根
-└── vue.config.js
+vant-element/               # 库源码 (npm 包)
+├── packages/vant-element/
+│   ├── src/
+│   │   ├── index.js        # 插件入口
+│   │   ├── utils.js        # 图标映射工具
+│   │   ├── components/     # 65 个组件
+│   │   └── services/       # 服务式 API
+│   ├── package.json        # npm 包发布入口
+│   └── vue.config.js
+├── package.json            # monorepo 根
+└── .github/workflows/      # CI 配置
+
+vant-element-docs/          # VuePress 文档站 (独立)
+├── .vuepress/
+├── components/             # 组件文档 .md
+├── guide/                  # 使用指南
+└── package.json
+
+vant-element-examples/      # 演示项目 (独立)
+├── src/
+│   ├── main.js
+│   ├── router/
+│   └── views/
+├── public/
+└── package.json
 ```
 
 ### 脚本
