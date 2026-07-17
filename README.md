@@ -15,7 +15,7 @@
   <a href="https://www.npmjs.com/package/vant-element" target="_blank">
     <img src="https://img.shields.io/npm/l/vant-element" alt="license">
   </a>
-  <a href="https://new-star007.github.io/vant-element/" target="_blank">
+  <a href="https://new-star007.github.io/vant-element-docs/" target="_blank">
     <img src="https://img.shields.io/badge/docs-vant--element-blue" alt="docs">
   </a>
 </p>
@@ -28,7 +28,7 @@
 
 `vant-element` 是一个 Vue 2 插件，全局注册 `el-` 前缀的组件和服务，内部调用 Vant 组件并自动完成 API 映射。**一套 Element-UI 代码，桌面端跑 Element-UI，移动端渲染 Vant UI。**
 
-> [📖 在线文档](https://new-star007.github.io/vant-element/) | [🌰 示例](https://new-star007.github.io/vant-element/examples/)
+> [📖 在线文档](https://new-star007.github.io/vant-element-docs/) | [🌰 示例](https://new-star007.github.io/vant-element-examples/)
 
 ## 快速开始
 
@@ -92,7 +92,7 @@ Vue.use(VantElement, { components: ['el-button', 'el-input'] })
 
 ## 组件列表
 
-> 完整文档请查看 [📖 在线文档](https://new-star007.github.io/vant-element/components/)
+> 完整文档请查看 [📖 在线文档](https://new-star007.github.io/vant-element-docs/components/)
 
 ### Basic 基础
 

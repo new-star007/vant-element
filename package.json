@@ -1,6 +1,6 @@
 {
   "name": "vant-element",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Element UI compatible Vue 2 components powered by Vant",
   "main": "dist/vant-element.umd.min.js",
   "module": "dist/vant-element.common.js",
