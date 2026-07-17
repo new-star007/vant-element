@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.png" alt="Vant Element" width="120">
+  <img src="https://github.com/new-star007/vant-element/blob/main/logo.png" alt="Vant Element" width="120">
 </p>
 
 <h1 align="center">vant-element</h1>
