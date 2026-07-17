@@ -9,6 +9,7 @@
         <th
           v-for="(col, colIndex) in row"
           :key="col._id"
+          :data-prop="col.prop"
           :colspan="col.colSpan"
           :rowspan="col.rowSpan"
           :class="[
@@ -63,41 +64,7 @@
                 :class="{ 'is-active': store.filtersState[col.prop] && store.filtersState[col.prop].length > 0 }"
                 @click.stop="store.toggleFilterPanel(col)"
               >&#9660;</span>
-              <div
-                v-if="store.activeFilterCol === col.prop"
-                class="el-table__filter-panel"
-                :class="'el-table__filter-panel--' + (col.filterPlacement || 'bottom')"
-                @click.stop
-              >
-                <div class="el-table__filter-panel-content">
-                  <label
-                    v-for="(filter, fi) in col.filters"
-                    :key="fi"
-                    class="el-table__filter-panel-item"
-                  >
-                    <input
-                      v-if="col.filterMultiple !== false"
-                      type="checkbox"
-                      :value="filter.value"
-                      :checked="store.isFilterSelected(col, filter.value)"
-                      @change="store.handleFilterChange(col, filter.value, $event)"
-                    />
-                    <input
-                      v-else
-                      type="radio"
-                      :name="'el-filter-' + col.prop"
-                      :value="filter.value"
-                      :checked="store.isFilterSelected(col, filter.value)"
-                      @change="store.handleFilterChange(col, filter.value, $event)"
-                    />
-                    <span>{{ filter.text }}</span>
-                  </label>
-                </div>
-                <div class="el-table__filter-panel-footer">
-                  <button class="el-table__filter-panel-btn" @click="store.handleFilterConfirm(col)">筛选</button>
-                  <button class="el-table__filter-panel-btn el-table__filter-panel-btn--reset" @click="store.handleFilterReset(col)">重置</button>
-                </div>
-              </div>
+
             </template>
           </div>
         </th>

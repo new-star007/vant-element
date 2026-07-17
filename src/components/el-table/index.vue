@@ -61,6 +61,37 @@
       </div>
 
       <div v-if="layout.hasFixedRight" ref="rightFixedPatch" class="el-table__fixed-right-patch" :style="layout.rightFixedPatchStyle" />
+
+      <div v-if="store.activeFilterCol && activeFilterColData" ref="filterPanel" class="el-table__filter-panel" :style="store.filterPanelStyle" @click.stop>
+        <div class="el-table__filter-panel-content">
+          <label
+            v-for="(filter, fi) in activeFilterColData.filters"
+            :key="fi"
+            class="el-table__filter-panel-item"
+          >
+            <input
+              v-if="activeFilterColData.filterMultiple !== false"
+              type="checkbox"
+              :value="filter.value"
+              :checked="store.isFilterSelected(activeFilterColData, filter.value)"
+              @change="store.handleFilterChange(activeFilterColData, filter.value, $event)"
+            />
+            <input
+              v-else
+              type="radio"
+              :name="'el-filter-' + activeFilterColData.prop"
+              :value="filter.value"
+              :checked="store.isFilterSelected(activeFilterColData, filter.value)"
+              @change="store.handleFilterChange(activeFilterColData, filter.value, $event)"
+            />
+            <span>{{ filter.text }}</span>
+          </label>
+        </div>
+        <div class="el-table__filter-panel-footer">
+          <button class="el-table__filter-panel-btn" @click="store.handleFilterConfirm(activeFilterColData)">筛选</button>
+          <button class="el-table__filter-panel-btn el-table__filter-panel-btn--reset" @click="store.handleFilterReset(activeFilterColData)">重置</button>
+        </div>
+      </div>
     </template>
 
     <div v-else class="el-table__empty">
@@ -138,6 +169,10 @@ export default {
       const headerH = headerEl ? headerEl.offsetHeight : 0
       return `calc(100% - ${headerH}px)`
     },
+    activeFilterColData() {
+      if (!this.store || !this.store.activeFilterCol) return null
+      return this.store.columns.find(c => c.prop === this.store.activeFilterCol) || null
+    },
   },
   methods: {
     onBodyScroll() {
@@ -153,6 +188,7 @@ export default {
       if (this.$refs.rightFixedBodyWrapper) {
         this.$refs.rightFixedBodyWrapper.scrollTop = wrapper.scrollTop
       }
+      this.updateFilterPanelPosition()
     },
 
     handleFixedMousewheel(event) {
@@ -200,6 +236,31 @@ export default {
 
     emitCellMouseLeave(row, col, cell, event) {
       this.$emit('cell-mouse-leave', row, col, cell, event)
+    },
+
+    updateFilterPanelPosition() {
+      this.$nextTick(() => {
+        if (!this.store.activeFilterCol) {
+          this.store.filterPanelStyle = null
+          return
+        }
+        const ths = this.$el.querySelectorAll('th')
+        let el = null
+        for (let i = 0; i < ths.length; i++) {
+          if (ths[i].getAttribute('data-prop') === this.store.activeFilterCol) {
+            el = ths[i]
+            break
+          }
+        }
+        if (!el) return
+        const thRect = el.getBoundingClientRect()
+        const tableRect = this.$el.getBoundingClientRect()
+        this.store.filterPanelStyle = {
+          position: 'absolute',
+          top: (thRect.bottom - tableRect.top + 4) + 'px',
+          left: (thRect.left - tableRect.left) + 'px',
+        }
+      })
     },
 
     doLayout() {
@@ -288,6 +349,9 @@ export default {
         const row = this.data.find(r => this.store.getRowKey(r) === val)
         if (row) this.store.setCurrentRow(row)
       }
+    },
+    activeFilterColData() {
+      this.updateFilterPanelPosition()
     },
   },
   beforeDestroy() {

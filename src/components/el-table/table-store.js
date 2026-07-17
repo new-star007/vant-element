@@ -15,6 +15,7 @@ export default function createTableStore(tableVm) {
       sortState: { prop: '', order: '' },
       filtersState: {},
       activeFilterCol: '',
+      filterPanelStyle: null,
       expandedRows: [],
       currentRow: null,
       scrollLeft: 0,
