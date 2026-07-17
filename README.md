@@ -34,23 +34,31 @@
 
 ### 安装
 
+`vant-element` 基于 `vant` 构建，需要确保项目中已安装 `vant`：
+
 ```bash
-npm install vant-element
+# 如果项目还没有 vant
+npm install vant vant-element
 # 或
-pnpm add vant-element
+pnpm add vant vant-element
 ```
+
+> 如果你的项目已安装 `vant`，只需额外安装 `vant-element` 即可。
 
 ### 注册插件
 
 ```js
 import Vue from 'vue'
+import Vant from 'vant'
+import 'vant/lib/index.css'
 import VantElement from 'vant-element'
 import 'vant-element/dist/vant-element.css'
 
+Vue.use(Vant)
 Vue.use(VantElement)
 ```
 
-按需注册：
+按需注册 vant-element 组件：
 
 ```js
 Vue.use(VantElement, { components: ['el-button', 'el-input'] })
