@@ -60,7 +60,7 @@ export default {
     cancelButtonType: { type: String, default: 'default' },
     confirmButtonText: { type: String, default: '确定' },
     cancelButtonText: { type: String, default: '取消' },
-    teleport: { type: [String, Function], default: null },
+    teleport: { type: [String, Function], default: 'body' },
     offset: { type: Array, default: () => [0, 10] },
     showCancel: { type: Boolean, default: true },
     hideIcon: Boolean,
